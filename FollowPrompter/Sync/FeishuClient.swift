@@ -501,8 +501,15 @@ actor FeishuClient {
         let spaceID: String?
         let typeLabel: String
         let modified: Date?
+        /// 所有者（搜索结果才有；别人共享的文档据此区分）
+        var owner: String? = nil
+        /// 我上次打开的时间（搜索结果才有）
+        var opened: Date? = nil
+        var crossTenant = false
 
         var importable: Bool { link != nil }
+        /// 去重用：文档 / 知识库节点 token
+        var docToken: String? { link.flatMap { FeishuClient.parse($0)?.token } }
     }
 
     struct Page {
@@ -551,8 +558,50 @@ actor FeishuClient {
         return id
     }
 
-    /// 最近编辑：合并「我的空间」根目录和「我的文档库」第一层，按编辑时间倒序
-    func listRecent() async throws -> Page {
+    /// 最近打开：用户能看到的所有文档（自己的、别人共享的、知识库里的），按我打开的时间倒序。
+    /// 开放平台没有"与我共享"列表接口，用空关键词搜索 + 按打开时间排序来实现，和飞书首页的"最近"一致。
+    /// 第一页再并入「我的空间」和「我的文档库」，新建后还没打开过的文档也不会漏掉。
+    private var myOwnerNames: Set<String> = []
+
+    func listRecent(page: String? = nil) async throws -> Page {
+        var result: Page
+        var searchError: Error?
+        do {
+            result = try await searchDocs("", sortByOpenTime: true, page: page)
+            if page != nil {
+                result.items = result.items.map { item in
+                    var item = item
+                    if let o = item.owner, myOwnerNames.contains(o) { item.owner = nil }
+                    return item
+                }
+            }
+        } catch {
+            if page != nil { throw error }
+            result = Page(items: [], next: nil)
+            searchError = error
+        }
+        guard page == nil else { return result }
+        let own = (try? await listOwnRecent().items) ?? []
+        if result.items.isEmpty && own.isEmpty, let searchError { throw searchError }
+        let ownTokens = Set(own.compactMap(\.docToken))
+        // 同时出现在自己空间里的文档，所有者就是"我"；只给别人的文档显示所有者
+        let myNames = Set(result.items.filter { $0.docToken.map(ownTokens.contains) ?? false }.compactMap(\.owner))
+        if !myNames.isEmpty {
+            myOwnerNames.formUnion(myNames)
+        }
+        result.items = result.items.map { item in
+            var item = item
+            if let o = item.owner, myOwnerNames.contains(o) { item.owner = nil }
+            return item
+        }
+        let seen = Set(result.items.compactMap(\.docToken))
+        result.items += own.filter { $0.docToken.map { !seen.contains($0) } ?? true }
+        result.items.sort { ($0.opened ?? $0.modified ?? .distantPast) > ($1.opened ?? $1.modified ?? .distantPast) }
+        return result
+    }
+
+    /// 合并「我的空间」根目录和「我的文档库」第一层，按编辑时间倒序
+    func listOwnRecent() async throws -> Page {
         var items: [Item] = []
         var firstError: Error?
         do { items += try await listFolder("").items } catch { firstError = error }
@@ -602,9 +651,18 @@ actor FeishuClient {
         return Page(items: items, next: Self.nextToken(data))
     }
 
-    /// 搜索云文档和知识库
+    /// 搜索云文档和知识库（范围是当前用户能看到的所有文档，包括别人共享的）
     func search(_ query: String, page: String? = nil) async throws -> Page {
-        var body: [String: Any] = ["query": query, "page_size": 20, "doc_filter": [String: Any](), "wiki_filter": [String: Any]()]
+        try await searchDocs(query, sortByOpenTime: false, page: page)
+    }
+
+    private func searchDocs(_ query: String, sortByOpenTime: Bool, page: String?) async throws -> Page {
+        var filter: [String: Any] = [:]
+        if sortByOpenTime {
+            filter["sort_type"] = "OPEN_TIME"
+            filter["doc_types"] = ["DOCX", "DOC"]
+        }
+        var body: [String: Any] = ["query": query, "page_size": 20, "doc_filter": filter, "wiki_filter": filter]
         if let page { body["page_token"] = page }
         let data = try await request("/open-apis/search/v2/doc_wiki/search", method: "POST", body: body)
         let units = data["res_units"] as? [[String: Any]] ?? []
@@ -619,7 +677,10 @@ actor FeishuClient {
             return Item(id: "\(i)-\(url)", title: title, kind: isDoc ? .document : .other,
                         link: isDoc ? url : nil, container: nil, spaceID: nil,
                         typeLabel: isDoc ? (parsed?.kind == .wiki ? "知识库文档" : "文档") : Self.typeLabel(docType.lowercased()),
-                        modified: Self.date(meta["update_time"]))
+                        modified: Self.date(meta["update_time"]),
+                        owner: meta["owner_name"] as? String,
+                        opened: Self.date(meta["last_open_time"]),
+                        crossTenant: meta["is_cross_tenant"] as? Bool ?? false)
         }
         return Page(items: items, next: (data["has_more"] as? Bool ?? false) ? data["page_token"] as? String : nil)
     }
@@ -647,3 +708,4 @@ actor FeishuClient {
         }
     }
 }
+

@@ -93,9 +93,9 @@ struct FeishuDocPicker: View {
             Section {
                 FeishuItemRows(source: .recent, onPick: pick)
             } header: {
-                Text("最近编辑")
+                Text("最近打开")
             } footer: {
-                Text("包含「我的空间」和「我的文档库」。找不到的话可以在上方搜索，或按目录浏览。")
+                Text("包含别人共享给你的文档和知识库页面。找不到的话可以在上方搜索，或按目录浏览。")
             }
             Section("按目录浏览") {
                 NavigationLink(value: FeishuItemList.Source.folder(token: "", title: "我的空间")) {
@@ -174,7 +174,7 @@ struct FeishuItemList: View {
         var title: String {
             switch self {
             case .folder(_, let t), .wikiNodes(_, _, let t): t
-            case .recent: "最近编辑"
+            case .recent: "最近打开"
             case .wikiSpaces: "知识库"
             case .search: "搜索结果"
             }
@@ -262,7 +262,12 @@ struct FeishuItemRows: View {
                 Text(item.title).lineLimit(2)
                 HStack(spacing: 6) {
                     Text(item.kind == .other ? "\(item.typeLabel) · 暂不支持" : item.typeLabel)
-                    if let d = item.modified {
+                    if let owner = item.owner, !owner.isEmpty {
+                        Text("· \(owner)\(item.crossTenant ? "（外部）" : "")")
+                    }
+                    if let d = item.opened {
+                        Text("· \(d.formatted(.relative(presentation: .named)))打开")
+                    } else if let d = item.modified {
                         Text("· \(d.formatted(.relative(presentation: .named)))编辑")
                     }
                 }
@@ -327,7 +332,7 @@ struct FeishuItemRows: View {
         let client = FeishuClient.shared
         switch source {
         case .folder(let token, _): return try await client.listFolder(token, page: page)
-        case .recent: return try await client.listRecent()
+        case .recent: return try await client.listRecent(page: page)
         case .wikiSpaces: return try await client.listWikiSpaces(page: page)
         case .wikiNodes(let space, let parent, _): return try await client.listWikiNodes(space: space, parent: parent, page: page)
         case .search(let q): return try await client.search(q, page: page)
