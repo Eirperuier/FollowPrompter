@@ -134,12 +134,20 @@ final class PeerLink: NSObject, MCSessionDelegate, MCNearbyServiceAdvertiserDele
 
 // MARK: - iPad 端
 
+/// iPad 端同时开两个通道：苹果点对点（iPhone 遥控器）和局域网（安卓遥控器）。
 @MainActor @Observable
 final class RemoteHost {
-    private(set) var connectedCount = 0
+    private(set) var appleCount = 0
+    private(set) var lanClients: [LANRemoteServer.Client] = []
+    /// 局域网服务实际监听的端口（手动连接时用）
+    private(set) var lanPort: UInt16?
+    private(set) var pairingCode = RemoteHost.storedCode()
     @ObservationIgnored var onCommand: ((RemoteCommand) -> Void)?
     @ObservationIgnored private var link: PeerLink?
+    @ObservationIgnored private var lan: LANRemoteServer?
     @ObservationIgnored private var lastSent: RemoteStatus?
+
+    var connectedCount: Int { appleCount + lanClients.count }
 
     func start() {
         guard link == nil else { return }
@@ -148,8 +156,8 @@ final class RemoteHost {
             MainActor.assumeIsolated {
                 guard let self, let link = self.link else { return }
                 let n = link.session.connectedPeers.count
-                if n > self.connectedCount { self.lastSent = nil }   // 新遥控器连上，下次强制推送状态
-                self.connectedCount = n
+                if n > self.appleCount { self.lastSent = nil }   // 新遥控器连上，下次强制推送状态
+                self.appleCount = n
             }
         }
         l.onMessage = { [weak self] msg in
@@ -159,12 +167,17 @@ final class RemoteHost {
         }
         l.advertise()
         link = l
+        startLAN()
     }
 
     func stop() {
         link?.stop()
         link = nil
-        connectedCount = 0
+        lan?.stop()
+        lan = nil
+        appleCount = 0
+        lanClients = []
+        lanPort = nil
         lastSent = nil
     }
 
@@ -172,7 +185,42 @@ final class RemoteHost {
         guard connectedCount > 0, status != lastSent else { return }
         lastSent = status
         link?.send(.status(status))
+        lan?.publish(status)
     }
+
+    /// 换一个配对码，已连接的安卓遥控器会断开
+    func regenerateCode() {
+        pairingCode = Self.newCode()
+        UserDefaults.standard.set(pairingCode, forKey: "remotePairingCode")
+        guard lan != nil else { return }
+        lan?.stop()
+        lanClients = []
+        startLAN()
+    }
+
+    private func startLAN() {
+        let server = LANRemoteServer(hostName: UIDevice.current.name, code: pairingCode)
+        server.onCommand = { [weak self] c in MainActor.assumeIsolated { self?.onCommand?(c) } }
+        server.onClientsChange = { [weak self] list in
+            MainActor.assumeIsolated {
+                guard let self else { return }
+                if list.count > self.lanClients.count { self.lastSent = nil }
+                self.lanClients = list
+            }
+        }
+        server.onPortChange = { [weak self] p in MainActor.assumeIsolated { self?.lanPort = p } }
+        server.start()
+        lan = server
+    }
+
+    private static func storedCode() -> String {
+        if let c = UserDefaults.standard.string(forKey: "remotePairingCode"), c.count == 4 { return c }
+        let c = newCode()
+        UserDefaults.standard.set(c, forKey: "remotePairingCode")
+        return c
+    }
+
+    private static func newCode() -> String { String(format: "%04d", Int.random(in: 0...9999)) }
 }
 
 // MARK: - iPhone 端

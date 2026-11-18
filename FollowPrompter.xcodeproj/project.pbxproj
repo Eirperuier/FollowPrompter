@@ -14,6 +14,7 @@
 		24B7125603772C9F399DCAAE /* SpeechLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C45ACD5C78DBCDE43CAE1C /* SpeechLanguage.swift */; };
 		3A791A336120C593AA4EE272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C58B29BFFD4789A147AEA35 /* Assets.xcassets */; };
 		3D6AF785F48294398DA9D203 /* SpeechModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E217D58405995270E814509 /* SpeechModelStore.swift */; };
+		4A38ACED5EF32DD548B06128 /* LANRemoteServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E5CEE57EFEB9771BAFFCA3 /* LANRemoteServer.swift */; };
 		4C6C6F92D0289D0D7E0A13F8 /* PrompterSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5F82C0562097C1523B9FC /* PrompterSettingsView.swift */; };
 		51A760DD0C55EDB47768D5FC /* FeishuBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C00D8734B3980E1DE9EA0 /* FeishuBrowser.swift */; };
 		5FD66E1BD898EF237BECFC43 /* SpeechListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7703429687929EFD148B87B /* SpeechListener.swift */; };
@@ -24,6 +25,7 @@
 		91D9E50F1D438E3BB56ACB98 /* SpeechAligner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB238C62DE34F6AA864349C /* SpeechAligner.swift */; };
 		B02467F40EC5F83FF07F0F74 /* ModernTranscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126A82E00981DB95193EE79 /* ModernTranscription.swift */; };
 		B0E9CFBEC988F711A0C23CE3 /* ScriptVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10A27923E8351E34CBB194 /* ScriptVocabulary.swift */; };
+		BB0807208F2C52AA683BAFCC /* RemoteConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8675C5BB9F96D90D329BBD49 /* RemoteConnectView.swift */; };
 		BD68AC5BEAEE59152A7F5AA5 /* FollowPrompterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704EBA6337A5A932B9F27B51 /* FollowPrompterApp.swift */; };
 		C32408CE6C1971E99E08BBBA /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E48A1B63B9E56E07EA92092 /* LibraryView.swift */; };
 		DC1F6C7DF22E66020EDC3A93 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364DE3ACA9A6D1BE345F6EFE /* EditorView.swift */; };
@@ -54,6 +56,7 @@
 		6126A82E00981DB95193EE79 /* ModernTranscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernTranscription.swift; sourceTree = "<group>"; };
 		704EBA6337A5A932B9F27B51 /* FollowPrompterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowPrompterApp.swift; sourceTree = "<group>"; };
 		839D5532D1641C897E3C5C1D /* FeishuViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeishuViews.swift; sourceTree = "<group>"; };
+		8675C5BB9F96D90D329BBD49 /* RemoteConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConnectView.swift; sourceTree = "<group>"; };
 		88C45ACD5C78DBCDE43CAE1C /* SpeechLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechLanguage.swift; sourceTree = "<group>"; };
 		9C58B29BFFD4789A147AEA35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1D5F82C0562097C1523B9FC /* PrompterSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterSettingsView.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		C90C6DCA06E0454AF599B0F5 /* ScriptStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptStore.swift; sourceTree = "<group>"; };
 		CAB9B0FD8454C968DA97CD7C /* Tokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
 		CE3F26F67397B70050DD523E /* PrompterTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterTextView.swift; sourceTree = "<group>"; };
+		D0E5CEE57EFEB9771BAFFCA3 /* LANRemoteServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LANRemoteServer.swift; sourceTree = "<group>"; };
 		E543DD97A5E1F4D5DC1C2A1C /* AlignerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignerTests.swift; sourceTree = "<group>"; };
 		F431B8CE4CAA45C7784C4FF7 /* PrompterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +101,8 @@
 		68B1B5EBCA758E187437AA0F /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				D0E5CEE57EFEB9771BAFFCA3 /* LANRemoteServer.swift */,
+				8675C5BB9F96D90D329BBD49 /* RemoteConnectView.swift */,
 				36722322A84D88F2A3C0C06B /* RemoteLink.swift */,
 				0B07A78E262333C14C9D2007 /* RemoteView.swift */,
 			);
@@ -273,12 +279,14 @@
 				619651CCB69AA2C560F40D8C /* FeishuClient.swift in Sources */,
 				6BC1D9B46FCB1F0575F49167 /* FeishuViews.swift in Sources */,
 				BD68AC5BEAEE59152A7F5AA5 /* FollowPrompterApp.swift in Sources */,
+				4A38ACED5EF32DD548B06128 /* LANRemoteServer.swift in Sources */,
 				C32408CE6C1971E99E08BBBA /* LibraryView.swift in Sources */,
 				B02467F40EC5F83FF07F0F74 /* ModernTranscription.swift in Sources */,
 				0D74C2B7ACFDD614C5090181 /* PromptTracker.swift in Sources */,
 				4C6C6F92D0289D0D7E0A13F8 /* PrompterSettingsView.swift in Sources */,
 				8F884A8708279B50B92A878C /* PrompterTextView.swift in Sources */,
 				1468E760C84270AD7EAE7AF9 /* PrompterView.swift in Sources */,
+				BB0807208F2C52AA683BAFCC /* RemoteConnectView.swift in Sources */,
 				F95B767E66441BC731C62A1D /* RemoteLink.swift in Sources */,
 				17948EEA748928AF988F1A6F /* RemoteView.swift in Sources */,
 				686E850EAAE114D9FE962A6E /* ScriptStore.swift in Sources */,

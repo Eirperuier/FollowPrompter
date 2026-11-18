@@ -38,6 +38,7 @@ struct PrompterView: View {
     @State private var countdownTask: Task<Void, Never>?
     @State private var controlsVisible = true
     @State private var showSettings = false
+    @State private var showRemote = false
     @State private var accumulated: TimeInterval = 0
     @State private var runStart: Date?
     @State private var now = Date()
@@ -182,6 +183,7 @@ struct PrompterView: View {
                 tracker.jump(to: n)
             }
             if ProcessInfo.processInfo.arguments.contains("-showSettings") { showSettings = true }
+            if ProcessInfo.processInfo.arguments.contains("-showRemote") { showRemote = true }
             if ProcessInfo.processInfo.arguments.contains("-demoChunks") {
                 // 模拟识别器：每 0.8 秒送来一批 4 个字
                 let body = Array(script.body)
@@ -206,7 +208,7 @@ struct PrompterView: View {
             now = date
             if running && countdown == nil { tracker.sampleRate() }
             pushStatus()
-            if running, controlsVisible, !showSettings, date.timeIntervalSince(lastInteraction) > 3.5 {
+            if running, controlsVisible, !showSettings, !showRemote, date.timeIntervalSince(lastInteraction) > 3.5 {
                 withAnimation(.easeInOut(duration: 0.3)) { controlsVisible = false }
             }
         }
@@ -298,11 +300,21 @@ struct PrompterView: View {
 
             Spacer()
 
-            if remote.connectedCount > 0 {
-                Image(systemName: "iphone.gen3.radiowaves.left.and.right")
+            Button {
+                showRemote = true
+                lastInteraction = Date()
+            } label: {
+                Image(systemName: remote.connectedCount > 0 ? "iphone.gen3.radiowaves.left.and.right" : "iphone.gen3")
                     .font(.title3)
-                    .foregroundStyle(.green)
-                    .accessibilityLabel("iPhone 遥控器已连接")
+                    .foregroundStyle(remote.connectedCount > 0 ? .green : .secondary)
+                    .frame(width: 44, height: 44)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(remote.connectedCount > 0 ? "遥控器已连接" : "连接遥控器")
+            .popover(isPresented: $showRemote) {
+                RemoteConnectView(host: remote)
+                    .frame(width: 380, height: 560)
+                    .presentationCompactAdaptation(.popover)
             }
 
             HStack(spacing: 10) {

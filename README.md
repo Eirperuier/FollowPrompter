@@ -20,6 +20,7 @@ iPad 提词器，**跟读模式下文字会跟着你的语速滚动**：读得�
 - 文字设置：字号、行距、边距、阅读线位置、已读变暗、水平镜像/垂直翻转（用于提词器分光玻璃）、识别语言
 
 ## iPhone 遥控器 / 重读本句
+（安卓手机见下面的「安卓遥控器」）
 同一个 App 装到 iPhone 上，打开就是「遥控器」页（另一个标签页是稿件库，iPhone 也能直接当提词器用）。
 - iPad 打开任意稿件的提词页面后，iPhone 会自动发现并连接（蓝牙 / 点对点 Wi‑Fi，不需要联网；首次会弹出"本地网络"权限，请允许）
 - **重读本句**：回到当前句开头；刚回到句首时再按一次，会再退一句（连按逐句后退）
@@ -28,6 +29,24 @@ iPad 提词器，**跟读模式下文字会跟着你的语速滚动**：读得�
 - 遥控器上能看到当前句、下一句、进度、用时和重读次数；iPad 上会闪一下红色"重读本句"提示
 - iPad 自身：底部有"重读本句"按钮，外接键盘按 Delete 也可以
 - iPhone 遥控页面会保持亮屏；锁屏或切到后台会断开，回来后自动重连
+
+## 安卓遥控器
+`android/` 目录是独立的安卓 App「随声提词遥控器」（Kotlin + Jetpack Compose，Android 8.0 及以上），功能和 iPhone 遥控器一致：重读本句 / 本段、上一句 / 下一句、开始暂停、回到开头、匀速调速，显示当前句、下一句、进度和重读次数。
+- 手机和 iPad 连**同一个 Wi‑Fi**，iPad 打开提词页面后安卓 App 会自动发现（mDNS 服务 `_fpremote._tcp`）
+- 第一次连接输入 iPad 上的 4 位**配对码**：提词页底部的手机图标 → 遥控器面板（也能看到已连接的设备、更换配对码）。配对码会被记住，之后自动连接、断线自动重连
+- 有些公司 / 酒店 Wi‑Fi 屏蔽设备发现，可以在 App 里「手动输入地址」（遥控器面板里显示，形如 `192.168.1.5:52819`）
+- **音量键遥控**（默认开启）：音量下 = 重读本句，音量上 = 开始 / 暂停，不看屏幕也能按
+- 录制时保持亮屏；切到后台会断开，回来自动重连
+
+构建（需要 JDK 17 和 Android SDK）：
+```bash
+cd android
+echo "sdk.dir=$ANDROID_HOME" > local.properties
+./gradlew assembleDebug        # app/build/outputs/apk/debug/app-debug.apk
+./gradlew assembleRelease      # 需要 ~/.android/followprompter-release.properties 里的签名配置
+```
+
+协议（iPad 端 `Remote/LANRemoteServer.swift`）：TCP，一行一条 JSON。遥控器先发 `{"type":"hello","name":…,"code":"1234"}`，之后发 `{"type":"command","command":"rereadSentence"}`，每 3 秒 `{"type":"ping"}`；iPad 回 `welcome` / `denied`、推送 `{"type":"status","status":{…}}`、回 `pong`。
 
 ## 飞书同步
 稿件可以关联一篇飞书云文档或知识库页面，以飞书上的内容为准。

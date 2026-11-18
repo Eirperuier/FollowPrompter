@@ -13,3 +13,6 @@ FollowPrompter.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
 
 # macOS
 .DS_Store
+
+# 打包好的安装包
+dist/

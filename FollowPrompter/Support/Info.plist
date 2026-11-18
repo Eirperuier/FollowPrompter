@@ -3,11 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>随声提词通过本地网络连接 iPhone 遥控器和 iPad 提词器。</string>
+	<string>随声提词通过本地网络连接 iPhone / 安卓遥控器和 iPad 提词器。</string>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_fprompt._tcp</string>
 		<string>_fprompt._udp</string>
+		<string>_fpremote._tcp</string>
 	</array>
 </dict>
 </plist>
