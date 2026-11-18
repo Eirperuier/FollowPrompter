@@ -1,0 +1,15 @@
+# 编译产物
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Xcode 个人设置
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+FollowPrompter.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+
+# macOS
+.DS_Store

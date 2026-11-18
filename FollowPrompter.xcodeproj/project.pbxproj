@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D74C2B7ACFDD614C5090181 /* PromptTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03E33C55A5FBF1356012004 /* PromptTracker.swift */; };
+		1468E760C84270AD7EAE7AF9 /* PrompterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F431B8CE4CAA45C7784C4FF7 /* PrompterView.swift */; };
+		17948EEA748928AF988F1A6F /* RemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B07A78E262333C14C9D2007 /* RemoteView.swift */; };
+		239415E4EA43976EDA3F6778 /* AlignerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543DD97A5E1F4D5DC1C2A1C /* AlignerTests.swift */; };
+		24B7125603772C9F399DCAAE /* SpeechLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C45ACD5C78DBCDE43CAE1C /* SpeechLanguage.swift */; };
+		3A791A336120C593AA4EE272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C58B29BFFD4789A147AEA35 /* Assets.xcassets */; };
+		3D6AF785F48294398DA9D203 /* SpeechModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E217D58405995270E814509 /* SpeechModelStore.swift */; };
+		4C6C6F92D0289D0D7E0A13F8 /* PrompterSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D5F82C0562097C1523B9FC /* PrompterSettingsView.swift */; };
+		51A760DD0C55EDB47768D5FC /* FeishuBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C00D8734B3980E1DE9EA0 /* FeishuBrowser.swift */; };
+		5FD66E1BD898EF237BECFC43 /* SpeechListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7703429687929EFD148B87B /* SpeechListener.swift */; };
+		619651CCB69AA2C560F40D8C /* FeishuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579542B68F9A54B11DCB1021 /* FeishuClient.swift */; };
+		686E850EAAE114D9FE962A6E /* ScriptStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90C6DCA06E0454AF599B0F5 /* ScriptStore.swift */; };
+		6BC1D9B46FCB1F0575F49167 /* FeishuViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D5532D1641C897E3C5C1D /* FeishuViews.swift */; };
+		8F884A8708279B50B92A878C /* PrompterTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3F26F67397B70050DD523E /* PrompterTextView.swift */; };
+		91D9E50F1D438E3BB56ACB98 /* SpeechAligner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB238C62DE34F6AA864349C /* SpeechAligner.swift */; };
+		B02467F40EC5F83FF07F0F74 /* ModernTranscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126A82E00981DB95193EE79 /* ModernTranscription.swift */; };
+		B0E9CFBEC988F711A0C23CE3 /* ScriptVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10A27923E8351E34CBB194 /* ScriptVocabulary.swift */; };
+		BD68AC5BEAEE59152A7F5AA5 /* FollowPrompterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704EBA6337A5A932B9F27B51 /* FollowPrompterApp.swift */; };
+		C32408CE6C1971E99E08BBBA /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E48A1B63B9E56E07EA92092 /* LibraryView.swift */; };
+		DC1F6C7DF22E66020EDC3A93 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364DE3ACA9A6D1BE345F6EFE /* EditorView.swift */; };
+		EB9EB084705E8C43B62F04A1 /* Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB9B0FD8454C968DA97CD7C /* Tokenizer.swift */; };
+		F95B767E66441BC731C62A1D /* RemoteLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36722322A84D88F2A3C0C06B /* RemoteLink.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		34A56A3D0208B16BF60577C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E872C92F01EBC939E4CCEC68 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7DF86B3FCC751B30965F08A;
+			remoteInfo = FollowPrompter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B07A78E262333C14C9D2007 /* RemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteView.swift; sourceTree = "<group>"; };
+		0E217D58405995270E814509 /* SpeechModelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModelStore.swift; sourceTree = "<group>"; };
+		1E48A1B63B9E56E07EA92092 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		1EB238C62DE34F6AA864349C /* SpeechAligner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechAligner.swift; sourceTree = "<group>"; };
+		2D9D1AE43F6ACEBC3C1D1A24 /* FollowPrompterTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FollowPrompterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		364DE3ACA9A6D1BE345F6EFE /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		36722322A84D88F2A3C0C06B /* RemoteLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLink.swift; sourceTree = "<group>"; };
+		3E6C00D8734B3980E1DE9EA0 /* FeishuBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeishuBrowser.swift; sourceTree = "<group>"; };
+		579542B68F9A54B11DCB1021 /* FeishuClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeishuClient.swift; sourceTree = "<group>"; };
+		6126A82E00981DB95193EE79 /* ModernTranscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernTranscription.swift; sourceTree = "<group>"; };
+		704EBA6337A5A932B9F27B51 /* FollowPrompterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowPrompterApp.swift; sourceTree = "<group>"; };
+		839D5532D1641C897E3C5C1D /* FeishuViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeishuViews.swift; sourceTree = "<group>"; };
+		88C45ACD5C78DBCDE43CAE1C /* SpeechLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechLanguage.swift; sourceTree = "<group>"; };
+		9C58B29BFFD4789A147AEA35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1D5F82C0562097C1523B9FC /* PrompterSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterSettingsView.swift; sourceTree = "<group>"; };
+		BD10A27923E8351E34CBB194 /* ScriptVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptVocabulary.swift; sourceTree = "<group>"; };
+		BDB3ADDB97B62F52A01C2DFF /* FollowPrompter.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FollowPrompter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C03E33C55A5FBF1356012004 /* PromptTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptTracker.swift; sourceTree = "<group>"; };
+		C7703429687929EFD148B87B /* SpeechListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechListener.swift; sourceTree = "<group>"; };
+		C90C6DCA06E0454AF599B0F5 /* ScriptStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptStore.swift; sourceTree = "<group>"; };
+		CAB9B0FD8454C968DA97CD7C /* Tokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
+		CE3F26F67397B70050DD523E /* PrompterTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterTextView.swift; sourceTree = "<group>"; };
+		E543DD97A5E1F4D5DC1C2A1C /* AlignerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignerTests.swift; sourceTree = "<group>"; };
+		F431B8CE4CAA45C7784C4FF7 /* PrompterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrompterView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1912E10B2606A423C97E6D06 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				704EBA6337A5A932B9F27B51 /* FollowPrompterApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		445F318EC579F67EA3E6C02A = {
+			isa = PBXGroup;
+			children = (
+				DD513A2310083392E6CFE8AF /* FollowPrompter */,
+				E90AE93592D81A4F67F1C8B5 /* FollowPrompterTests */,
+				B3C136AA91E6B97C6C4B478B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BE7905855E4CD7430828248 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C90C6DCA06E0454AF599B0F5 /* ScriptStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		68B1B5EBCA758E187437AA0F /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				36722322A84D88F2A3C0C06B /* RemoteLink.swift */,
+				0B07A78E262333C14C9D2007 /* RemoteView.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		95297D98C845301FAEE1D4B3 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				C03E33C55A5FBF1356012004 /* PromptTracker.swift */,
+				BD10A27923E8351E34CBB194 /* ScriptVocabulary.swift */,
+				1EB238C62DE34F6AA864349C /* SpeechAligner.swift */,
+				CAB9B0FD8454C968DA97CD7C /* Tokenizer.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		9F512A3CE1ADCAABCC2B2658 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C00D8734B3980E1DE9EA0 /* FeishuBrowser.swift */,
+				579542B68F9A54B11DCB1021 /* FeishuClient.swift */,
+				839D5532D1641C897E3C5C1D /* FeishuViews.swift */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
+		B3C136AA91E6B97C6C4B478B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDB3ADDB97B62F52A01C2DFF /* FollowPrompter.app */,
+				2D9D1AE43F6ACEBC3C1D1A24 /* FollowPrompterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B3CBD79B455DC93EA55AC582 /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				6126A82E00981DB95193EE79 /* ModernTranscription.swift */,
+				88C45ACD5C78DBCDE43CAE1C /* SpeechLanguage.swift */,
+				C7703429687929EFD148B87B /* SpeechListener.swift */,
+				0E217D58405995270E814509 /* SpeechModelStore.swift */,
+			);
+			path = Speech;
+			sourceTree = "<group>";
+		};
+		B6B5077D60E43B9FB2E0AE76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				364DE3ACA9A6D1BE345F6EFE /* EditorView.swift */,
+				1E48A1B63B9E56E07EA92092 /* LibraryView.swift */,
+				A1D5F82C0562097C1523B9FC /* PrompterSettingsView.swift */,
+				CE3F26F67397B70050DD523E /* PrompterTextView.swift */,
+				F431B8CE4CAA45C7784C4FF7 /* PrompterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD513A2310083392E6CFE8AF /* FollowPrompter */ = {
+			isa = PBXGroup;
+			children = (
+				9C58B29BFFD4789A147AEA35 /* Assets.xcassets */,
+				1912E10B2606A423C97E6D06 /* App */,
+				4BE7905855E4CD7430828248 /* Model */,
+				68B1B5EBCA758E187437AA0F /* Remote */,
+				B3CBD79B455DC93EA55AC582 /* Speech */,
+				9F512A3CE1ADCAABCC2B2658 /* Sync */,
+				95297D98C845301FAEE1D4B3 /* Tracking */,
+				B6B5077D60E43B9FB2E0AE76 /* Views */,
+			);
+			path = FollowPrompter;
+			sourceTree = "<group>";
+		};
+		E90AE93592D81A4F67F1C8B5 /* FollowPrompterTests */ = {
+			isa = PBXGroup;
+			children = (
+				E543DD97A5E1F4D5DC1C2A1C /* AlignerTests.swift */,
+			);
+			path = FollowPrompterTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72AAFF0AD5BE4DA0461DF36D /* FollowPrompterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE4483F0DBBE66D3DB4F2578 /* Build configuration list for PBXNativeTarget "FollowPrompterTests" */;
+			buildPhases = (
+				4D94BA9D944891480A983E99 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E081D30AB8D30A5606976F7 /* PBXTargetDependency */,
+			);
+			name = FollowPrompterTests;
+			packageProductDependencies = (
+			);
+			productName = FollowPrompterTests;
+			productReference = 2D9D1AE43F6ACEBC3C1D1A24 /* FollowPrompterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D7DF86B3FCC751B30965F08A /* FollowPrompter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B00466EB726E07E5BC3D5A98 /* Build configuration list for PBXNativeTarget "FollowPrompter" */;
+			buildPhases = (
+				008018ED38388488D60283F7 /* Sources */,
+				2033EAA3F3E56ED14068B5AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FollowPrompter;
+			packageProductDependencies = (
+			);
+			productName = FollowPrompter;
+			productReference = BDB3ADDB97B62F52A01C2DFF /* FollowPrompter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E872C92F01EBC939E4CCEC68 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					D7DF86B3FCC751B30965F08A = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C59AE3EA54BCD5AF0BF42908 /* Build configuration list for PBXProject "FollowPrompter" */;
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 445F318EC579F67EA3E6C02A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B3C136AA91E6B97C6C4B478B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D7DF86B3FCC751B30965F08A /* FollowPrompter */,
+				72AAFF0AD5BE4DA0461DF36D /* FollowPrompterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2033EAA3F3E56ED14068B5AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A791A336120C593AA4EE272 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		008018ED38388488D60283F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC1F6C7DF22E66020EDC3A93 /* EditorView.swift in Sources */,
+				51A760DD0C55EDB47768D5FC /* FeishuBrowser.swift in Sources */,
+				619651CCB69AA2C560F40D8C /* FeishuClient.swift in Sources */,
+				6BC1D9B46FCB1F0575F49167 /* FeishuViews.swift in Sources */,
+				BD68AC5BEAEE59152A7F5AA5 /* FollowPrompterApp.swift in Sources */,
+				C32408CE6C1971E99E08BBBA /* LibraryView.swift in Sources */,
+				B02467F40EC5F83FF07F0F74 /* ModernTranscription.swift in Sources */,
+				0D74C2B7ACFDD614C5090181 /* PromptTracker.swift in Sources */,
+				4C6C6F92D0289D0D7E0A13F8 /* PrompterSettingsView.swift in Sources */,
+				8F884A8708279B50B92A878C /* PrompterTextView.swift in Sources */,
+				1468E760C84270AD7EAE7AF9 /* PrompterView.swift in Sources */,
+				F95B767E66441BC731C62A1D /* RemoteLink.swift in Sources */,
+				17948EEA748928AF988F1A6F /* RemoteView.swift in Sources */,
+				686E850EAAE114D9FE962A6E /* ScriptStore.swift in Sources */,
+				B0E9CFBEC988F711A0C23CE3 /* ScriptVocabulary.swift in Sources */,
+				91D9E50F1D438E3BB56ACB98 /* SpeechAligner.swift in Sources */,
+				24B7125603772C9F399DCAAE /* SpeechLanguage.swift in Sources */,
+				5FD66E1BD898EF237BECFC43 /* SpeechListener.swift in Sources */,
+				3D6AF785F48294398DA9D203 /* SpeechModelStore.swift in Sources */,
+				EB9EB084705E8C43B62F04A1 /* Tokenizer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D94BA9D944891480A983E99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				239415E4EA43976EDA3F6778 /* AlignerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E081D30AB8D30A5606976F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7DF86B3FCC751B30965F08A /* FollowPrompter */;
+			targetProxy = 34A56A3D0208B16BF60577C2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		134C802CB7796E8A96F1F124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FollowPrompter/Support/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "随声提词";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "随声提词需要使用麦克风听你朗读，让提词内容跟着你的语速滚动。";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "随声提词需要语音识别来判断你读到了稿子的哪个位置。";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reiureprie.followprompter;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88BBF12E7DB22E050EB49BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FollowPrompter/Support/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "随声提词";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "随声提词需要使用麦克风听你朗读，让提词内容跟着你的语速滚动。";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "随声提词需要语音识别来判断你读到了稿子的哪个位置。";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reiureprie.followprompter;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9082CDCE0335918F5184093E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A03E23DE98BA55BB80FFA938 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AD6E0ED12FACB368159F3DD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reiureprie.followprompter.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FollowPrompter.app/FollowPrompter";
+			};
+			name = Release;
+		};
+		DA96C4F6614D0C1DAD4AB9B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reiureprie.followprompter.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FollowPrompter.app/FollowPrompter";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B00466EB726E07E5BC3D5A98 /* Build configuration list for PBXNativeTarget "FollowPrompter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				134C802CB7796E8A96F1F124 /* Debug */,
+				88BBF12E7DB22E050EB49BC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C59AE3EA54BCD5AF0BF42908 /* Build configuration list for PBXProject "FollowPrompter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A03E23DE98BA55BB80FFA938 /* Debug */,
+				9082CDCE0335918F5184093E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CE4483F0DBBE66D3DB4F2578 /* Build configuration list for PBXNativeTarget "FollowPrompterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA96C4F6614D0C1DAD4AB9B9 /* Debug */,
+				AD6E0ED12FACB368159F3DD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E872C92F01EBC939E4CCEC68 /* Project object */;
+}
